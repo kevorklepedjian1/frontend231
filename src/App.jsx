@@ -102,7 +102,7 @@ function App() {
 
   const handleSaveSummary = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/saveSummary/pdf', { formData, riskData }, { responseType: 'blob' });
+      const response = await axios.post('https://backend-9avl.vercel.app/api/saveSummary/pdf', { formData, riskData }, { responseType: 'blob' });
       const blob = new Blob([response.data], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -119,7 +119,7 @@ function App() {
 
   const handleDownloadCSV = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/saveSummary/csv', { formData, riskData });
+      const response = await axios.post('https://backend-9avl.vercel.app/api/saveSummary/csv', { formData, riskData });
       const csvData = response.data;
       const blob = new Blob([csvData], { type: 'text/csv' });
       const url = window.URL.createObjectURL(blob);
